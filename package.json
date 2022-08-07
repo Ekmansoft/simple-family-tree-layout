@@ -30,7 +30,6 @@
     "url": "https://github.com/Ekmansoft/simple-family-layout"
   },
   "dependencies": {
-    "@types/node": "^16.11.45",
     "@types/react": "^18.0.16",
     "@types/react-dom": "^18.0.6",
     "react": "^18.2.0",
@@ -46,6 +45,7 @@
     "@types/chai": "^4.3.1",
     "@types/jest": "^28.1.6",
     "@types/mocha": "^9.1.1",
+    "@types/node": "^18.6.4",
     "@typescript-eslint/eslint-plugin": "^5.30.6",
     "@typescript-eslint/parser": "^5.30.6",
     "chai": "^4.3.6",

@@ -1,0 +1,8 @@
+.NameStyle {
+  color: green;
+  font-size: calc(10px + 0.8vmin);
+}
+.SmallStyle {
+  color: red;
+  font-size: calc(10px + 0.4vmin);
+}
