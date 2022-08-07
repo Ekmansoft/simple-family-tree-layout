@@ -1,7 +1,7 @@
 import React from "react"; // importing FunctionComponent
 import { ProfileInfo } from "./profile-info";
 import { getSexColor } from "./get-sex-color";
-import CSS from 'csstype';
+import CSS from "csstype";
 
 const NameStyle: CSS.Properties = {
   backgroundColor: "rgba(255, 255, 255, 0.85)",
