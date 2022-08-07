@@ -21,7 +21,7 @@ const SmallStyle: CSS.Properties = {
   bottom: "2rem",
   padding: "0.5rem",
   fontFamily: "sans-serif",
-  fontSize: "1.5rem",
+  fontSize: "0.9rem",
   boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
 };
 
