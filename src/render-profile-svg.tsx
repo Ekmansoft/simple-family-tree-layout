@@ -1,8 +1,9 @@
 import React from "react"; // importing FunctionComponent
 import { ProfileInfo } from "./profile-info";
 import { getSexColor } from "./get-sex-color";
+import CSS from 'csstype';
 
-const NameStyle = {
+const NameStyle: CSS.Properties = {
   backgroundColor: "rgba(255, 255, 255, 0.85)",
   position: "absolute",
   right: 0,
@@ -13,7 +14,7 @@ const NameStyle = {
   boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
 };
 
-const SmallStyle = {
+const SmallStyle: CSS.Properties = {
   backgroundColor: "rgba(255, 255, 255, 0.85)",
   position: "absolute",
   right: 0,
@@ -44,6 +45,7 @@ export class RenderProfileSVG extends React.Component<ProfileInfo> {
         <text
           x={this.props.layout.topLeft.x + 10}
           y={this.props.layout.topLeft.y + 20}
+          style={NameStyle}
           className="NameStyle"
         >
           {this.props.profile.name}
@@ -51,6 +53,7 @@ export class RenderProfileSVG extends React.Component<ProfileInfo> {
         <text
           x={this.props.layout.topLeft.x + 20}
           y={this.props.layout.topLeft.y + 40}
+          style={SmallStyle}
           className="SmallStyle"
         >
           b.{this.props.profile.birthDate}
@@ -58,6 +61,7 @@ export class RenderProfileSVG extends React.Component<ProfileInfo> {
         <text
           x={this.props.layout.topLeft.x + 20}
           y={this.props.layout.topLeft.y + 55}
+          style={SmallStyle}
           className="SmallStyle"
         >
           d.{this.props.profile.deathDate}
