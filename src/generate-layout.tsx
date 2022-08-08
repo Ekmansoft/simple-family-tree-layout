@@ -3,8 +3,8 @@ import { RootLayout } from "./root-layout";
 import { RenderFamilySVG } from "./render-family-svg";
 import { RenderProfileSVG } from "./render-profile-svg";
 
-export function generateLayout(layout: RootLayout): JSX.Element[] {
-  const svgData: JSX.Element[] = [];
+export function generateLayout(layout: RootLayout): React.ReactElement[] {
+  const svgData: React.ReactElement[] = [];
 
   console.log("families {} ", layout.families.size);
 
