@@ -16,6 +16,7 @@ export class RenderFamilySVG extends React.Component<FamilyLayout> {
           width={this.props.rect.size.x}
           height={this.props.rect.size.y}
           fill="white"
+          key={this.props.familyId}
         />
       </a>
     );
