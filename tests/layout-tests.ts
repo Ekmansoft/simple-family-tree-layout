@@ -64,7 +64,7 @@ describe('verify tree', () => {
         let mainLayout = createFamilyLayout(tree, newProfileId1, 1, 1);
 
         expect(mainLayout.families.size).to.equal(1);
-        expect(mainLayout.profiles.size).to.equal(2);
+        expect(mainLayout.profiles.size).to.equal(3);
         let resultingLayout = generateLayout(mainLayout)
     })
 
