@@ -154,6 +154,7 @@ function addProfilesFromFamily(
               familyLayout.children.length * defaultProfileOffsetHorizontal,
             familyLayout.rect.topLeft.y + defaultChildOffsetVertical
           );
+          familyLayout.children.push(profileId);
           const placement: Rectangle = new Rectangle(
             childPoint,
             defaultProfileSize
@@ -192,14 +193,14 @@ function addProfilesFromFamily(
           profileId
         );
         if (!layout.profiles.has(profileId)) {
-          const childPoint = new Point(
+          const spousePoint = new Point(
             familyLayout.rect.topLeft.x -
               20 +
-              familyLayout.children.length * defaultProfileOffsetHorizontal,
-            familyLayout.rect.topLeft.y + defaultChildOffsetVertical
+              familyLayout.parents.length * defaultProfileOffsetHorizontal,
+            familyLayout.rect.topLeft.y + defaultParentOffsetVertical
           );
           const placement: Rectangle = new Rectangle(
-            childPoint,
+            spousePoint,
             defaultProfileSize
           );
           layout.profiles.set(profileId, profileId);
@@ -207,6 +208,7 @@ function addProfilesFromFamily(
             profileId,
             new ProfileInfo(placement, spouse)
           );
+          familyLayout.parents.push(profileId);
           console.log("Addchild: ", profileId);
           if (childGenerationCount > 0) {
             addSpousesAndChildrenFromProfile(
