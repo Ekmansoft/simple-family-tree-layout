@@ -156,7 +156,7 @@ function addProfilesFromFamily(
           );
           const placement: Rectangle = new Rectangle(
             childPoint,
-            defaultFamilySize
+            defaultProfileSize
           );
           layout.profiles.set(profileId, profileId);
           familyLayout.profiles.set(
@@ -200,7 +200,7 @@ function addProfilesFromFamily(
           );
           const placement: Rectangle = new Rectangle(
             childPoint,
-            defaultFamilySize
+            defaultProfileSize
           );
           layout.profiles.set(profileId, profileId);
           familyLayout.profiles.set(
