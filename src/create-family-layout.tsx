@@ -2,7 +2,6 @@ import { ProfileInfo } from "./profile-info";
 import { RootLayout } from "./root-layout";
 import { FamilyLayout } from "./family-layout";
 import {
-  layoutNextPoint,
   defaultFamilySize,
   defaultProfileOffsetHorizontal,
   defaultChildOffsetVertical,
@@ -49,9 +48,10 @@ function addProfilesFromFamily(
 ) {
   if (!layout.families.has(family.familyId.itemLink)) {
     const familyId = family.familyId.itemLink;
+    const nextPoint = layout.findFamilyPosition(tree, family.familyId);
     const familyLayout = new FamilyLayout(
       familyId,
-      new Rectangle(layoutNextPoint, defaultFamilySize)
+      new Rectangle(nextPoint, defaultFamilySize)
     );
     console.log("Add family: {}", family.familyId.itemLink);
     const children = family.children.getLinks();
