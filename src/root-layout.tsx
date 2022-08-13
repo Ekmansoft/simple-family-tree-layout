@@ -6,13 +6,17 @@ import { layoutNextPoint, defaultParentOffsetVertical } from "./index";
 enum Relation {
   None,
   Parent,
-  Child
+  Child,
 }
 
-function findRelation(tree: TreeBackend, family1: FamilyLink, family2: FamilyLink): Relation {
+function findRelation(
+  tree: TreeBackend,
+  family1: FamilyLink,
+  family2: FamilyLink
+): Relation {
   const fam1 = tree.findFamily(family1);
   const fam2 = tree.findFamily(family2);
-  if ((fam1 != undefined) && (fam2 != undefined)) {
+  if (fam1 != undefined && fam2 != undefined) {
     for (const person1 of fam1.children.getLinks().entries()) {
       for (const person2 of fam2.parents.getLinks().entries()) {
         if (person1 == person2) {
@@ -51,13 +55,19 @@ export class RootLayout {
       const relation = findRelation(tree, family, new FamilyLink(key));
       if (relation === Relation.Parent) {
         const familyRect = element.getOuterBounds();
-        return new Point(familyRect.getTopLeft().x, familyRect.getTopLeft().y - defaultParentOffsetVertical);
+        return new Point(
+          familyRect.getTopLeft().x,
+          familyRect.getTopLeft().y - defaultParentOffsetVertical
+        );
       }
       if (relation === Relation.Child) {
         const familyRect = element.getOuterBounds();
-        return new Point(familyRect.getTopLeft().x, familyRect.getBottomRight().y + defaultParentOffsetVertical);
+        return new Point(
+          familyRect.getTopLeft().x,
+          familyRect.getBottomRight().y + defaultParentOffsetVertical
+        );
       }
     });
     return nextPoint;
-  }
+  };
 }
