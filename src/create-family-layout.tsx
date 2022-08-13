@@ -12,7 +12,6 @@ import {
 import { Point } from "./point";
 import { Rectangle } from "./rectangle";
 import {
-  ItemLink,
   FamilyLink,
   ProfileLink,
   Profile,
@@ -226,6 +225,7 @@ function addProfilesFromFamily(
         );
       }
     });
+    layout.families.set(family.familyId.itemLink, familyLayout);
   }
 }
 
