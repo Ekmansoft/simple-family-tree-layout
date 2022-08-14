@@ -38,7 +38,7 @@ function findRelation(
     console.log(fam2.parents.getLinks().entries());
     console.log(fam2.children.getLinks().entries());
   } else {
-    console.log("Error finding family 1 or 2", family1, family2)
+    console.log("Error finding family 1 or 2", family1, family2);
   }
   console.log(Relation.None);
   return Relation.None;
