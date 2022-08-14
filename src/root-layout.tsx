@@ -29,7 +29,7 @@ export class RootLayout {
       }
     });
     return false;
-  }
+  };
 
   findFamilyPosition = (tree: TreeBackend, family: FamilyLink): Point => {
     const nextPoint: Point = layoutNextPoint;
