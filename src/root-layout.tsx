@@ -29,17 +29,17 @@ export class RootLayout {
       const relation = findRelation(tree, family, new FamilyLink(key));
       console.log(relation);
       if (relation === Relation.Parent) {
-        const familyRect = element.getOuterBounds();
+        const familyRect = element.rect;
         return new Point(
           familyRect.getTopLeft().x,
           familyRect.getTopLeft().y - defaultParentOffsetVertical
         );
       }
       if (relation === Relation.Child) {
-        const familyRect = element.getOuterBounds();
+        const familyRect = element.rect;
         return new Point(
           familyRect.getTopLeft().x,
-          familyRect.getBottomRight().y + defaultParentOffsetVertical
+          familyRect.getTopLeft().y + defaultParentOffsetVertical
         );
       }
     });
