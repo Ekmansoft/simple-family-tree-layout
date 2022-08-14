@@ -20,7 +20,7 @@ function findRelation(
     for (const person1 of fam1.children.getLinks().entries()) {
       for (const person2 of fam2.parents.getLinks().entries()) {
         if (person1 == person2) {
-          console.log(Relation.Parent);
+          console.log("Relation.Parent");
           return Relation.Parent;
         }
       }
@@ -28,7 +28,7 @@ function findRelation(
     for (const person1 of fam1.parents.getLinks().entries()) {
       for (const person2 of fam2.children.getLinks().entries()) {
         if (person1 == person2) {
-          console.log(Relation.Child);
+          console.log("Relation.Child");
           return Relation.Child;
         }
       }
@@ -39,7 +39,7 @@ function findRelation(
   } else {
     console.log("Error finding family 1 or 2", family1, family2);
   }
-  console.log(Relation.None);
+  console.log("Relation.None");
   return Relation.None;
 }
 
