@@ -56,92 +56,96 @@ function addProfilesFromFamily(
     console.log("Add family: {}", family.familyId.itemLink);
     const children = family.children.getLinks();
     children.forEach((element) => {
-      const child = tree.findProfile(new ProfileLink(element.itemLink));
-      if (child !== undefined) {
-        const profileId = element.itemLink;
-        console.log(
-          "  Family: {} add child:{}",
-          family.familyId.itemLink,
-          profileId
-        );
-        if (!layout.profiles.has(profileId)) {
-          const childPoint = new Point(
-            familyLayout.rect.topLeft.x -
-              20 +
-              familyLayout.children.length * defaultProfileOffsetHorizontal,
-            familyLayout.rect.topLeft.y + defaultChildOffsetVertical
+      if (!layout.profileAlreadyInLayout(new ProfileLink(element.itemLink))) {
+        const child = tree.findProfile(new ProfileLink(element.itemLink));
+        if (child !== undefined) {
+          const profileId = element.itemLink;
+          console.log(
+            "  Family: {} add child:{}",
+            family.familyId.itemLink,
+            profileId
           );
-          familyLayout.children.push(profileId);
-          const placement: Rectangle = new Rectangle(
-            childPoint,
-            defaultProfileSize
-          );
-          layout.profiles.set(profileId, profileId);
-          familyLayout.profiles.set(
-            profileId,
-            new ProfileInfo(placement, child)
-          );
-          console.log("Addchild: ", profileId);
-          if (childGenerationCount > 0) {
-            addSpousesAndChildrenFromProfile(
-              tree,
-              layout,
-              child,
-              childGenerationCount - 1
+          if (!layout.profiles.has(profileId)) {
+            const childPoint = new Point(
+              familyLayout.rect.topLeft.x -
+                20 +
+                familyLayout.children.length * defaultProfileOffsetHorizontal,
+              familyLayout.rect.topLeft.y + defaultChildOffsetVertical
             );
+            familyLayout.children.push(profileId);
+            const placement: Rectangle = new Rectangle(
+              childPoint,
+              defaultProfileSize
+            );
+            layout.profiles.set(profileId, profileId);
+            familyLayout.profiles.set(
+              profileId,
+              new ProfileInfo(placement, child)
+            );
+            console.log("Addchild: ", profileId);
+            if (childGenerationCount > 0) {
+              addSpousesAndChildrenFromProfile(
+                tree,
+                layout,
+                child,
+                childGenerationCount - 1
+              );
+            }
           }
+        } else {
+          console.log(
+            "  Family: {} child {} missing",
+            family.familyId.itemLink,
+            element.itemLink
+          );
         }
-      } else {
-        console.log(
-          "  Family: {} child {} missing",
-          family.familyId.itemLink,
-          element.itemLink
-        );
       }
     });
     const spouses = family.parents.getLinks();
     spouses.forEach((element) => {
-      const spouse = tree.findProfile(new ProfileLink(element.itemLink));
-      if (spouse !== undefined) {
-        const profileId = element.itemLink;
-        console.log(
-          "  Family: {} add parent:{}",
-          family.familyId.itemLink,
-          profileId
-        );
-        if (!layout.profiles.has(profileId)) {
-          const spousePoint = new Point(
-            familyLayout.rect.topLeft.x -
-              20 +
-              familyLayout.parents.length * defaultProfileOffsetHorizontal,
-            familyLayout.rect.topLeft.y + defaultParentOffsetVertical
+      if (!layout.profileAlreadyInLayout(new ProfileLink(element.itemLink))) {
+        const spouse = tree.findProfile(new ProfileLink(element.itemLink));
+        if (spouse !== undefined) {
+          const profileId = element.itemLink;
+          console.log(
+            "  Family: {} add parent:{}",
+            family.familyId.itemLink,
+            profileId
           );
-          const placement: Rectangle = new Rectangle(
-            spousePoint,
-            defaultProfileSize
-          );
-          layout.profiles.set(profileId, profileId);
-          familyLayout.profiles.set(
-            profileId,
-            new ProfileInfo(placement, spouse)
-          );
-          familyLayout.parents.push(profileId);
-          console.log("Addchild: ", profileId);
-          if (childGenerationCount > 0) {
-            addSpousesAndChildrenFromProfile(
-              tree,
-              layout,
-              spouse,
-              childGenerationCount - 1
+          if (!layout.profiles.has(profileId)) {
+            const spousePoint = new Point(
+              familyLayout.rect.topLeft.x -
+                20 +
+                familyLayout.parents.length * defaultProfileOffsetHorizontal,
+              familyLayout.rect.topLeft.y + defaultParentOffsetVertical
             );
+            const placement: Rectangle = new Rectangle(
+              spousePoint,
+              defaultProfileSize
+            );
+            layout.profiles.set(profileId, profileId);
+            familyLayout.profiles.set(
+              profileId,
+              new ProfileInfo(placement, spouse)
+            );
+            familyLayout.parents.push(profileId);
+            console.log("Addchild: ", profileId);
+            if (childGenerationCount > 0) {
+              addSpousesAndChildrenFromProfile(
+                tree,
+                layout,
+                spouse,
+                childGenerationCount - 1
+              );
+            }
           }
+        } else {
+          console.log(
+            "  Family: {} parent {} missing",
+            family.familyId.itemLink,
+            element.itemLink
+          );
         }
-      } else {
-        console.log(
-          "  Family: {} parent {} missing",
-          family.familyId.itemLink,
-          element.itemLink
-        );
       }
     });
     layout.families.set(family.familyId.itemLink, familyLayout);

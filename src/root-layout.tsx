@@ -22,6 +22,15 @@ export class RootLayout {
     this.anchorProfile = "";
   }
 
+  profileAlreadyInLayout = (profileId: ProfileLink): boolean => {
+    this.families.forEach((element: FamilyLayout, key: string) => {
+      if (element.profiles.has(profileId.itemLink)) {
+        return true;
+      }
+    });
+    return false;
+  }
+
   findFamilyPosition = (tree: TreeBackend, family: FamilyLink): Point => {
     const nextPoint: Point = layoutNextPoint;
 
