@@ -33,10 +33,9 @@ function findRelation(
         }
       }
     }
-    console.log(fam1.parents.getLinks().entries());
-    console.log(fam1.children.getLinks().entries());
-    console.log(fam2.parents.getLinks().entries());
-    console.log(fam2.children.getLinks().entries());
+    console.log(fam1);
+    console.log(fam2);
+    console.log("No match - no relation");
   } else {
     console.log("Error finding family 1 or 2", family1, family2);
   }
