@@ -39,6 +39,7 @@ export class FamilyLayout {
           profileLayout.layout.getBottomRight().y - outerRect.topLeft.y;
       }
     }
+    console.log(outerRect);
     return outerRect;
   };
 }
