@@ -1,47 +1,7 @@
 import { Point } from "./point";
 import { FamilyLayout } from "./family-layout";
-import { FamilyLink, TreeBackend } from "simple-family-tree-model";
+import { FamilyLink, ProfileLink, TreeBackend, Relation, findRelation } from "simple-family-tree-model";
 import { layoutNextPoint, defaultParentOffsetVertical } from "./index";
-
-enum Relation {
-  None,
-  Parent,
-  Child,
-}
-
-function findRelation(
-  tree: TreeBackend,
-  family1: FamilyLink,
-  family2: FamilyLink
-): Relation {
-  const fam1 = tree.findFamily(family1);
-  const fam2 = tree.findFamily(family2);
-  if (fam1 != undefined && fam2 != undefined) {
-    for (const person1 of fam1.children.getLinks().entries()) {
-      for (const person2 of fam2.parents.getLinks().entries()) {
-        if (person1 == person2) {
-          console.log("Relation.Parent");
-          return Relation.Parent;
-        }
-      }
-    }
-    for (const person1 of fam1.parents.getLinks().entries()) {
-      for (const person2 of fam2.children.getLinks().entries()) {
-        if (person1 == person2) {
-          console.log("Relation.Child");
-          return Relation.Child;
-        }
-      }
-    }
-    console.log(fam1);
-    console.log(fam2);
-    console.log("No match - no relation");
-  } else {
-    console.log("Error finding family 1 or 2", family1, family2);
-  }
-  console.log("Relation.None");
-  return Relation.None;
-}
 
 export class RootLayout {
   families: Map<string, FamilyLayout>;
@@ -61,6 +21,7 @@ export class RootLayout {
 
     this.families.forEach((element: FamilyLayout, key: string) => {
       const relation = findRelation(tree, family, new FamilyLink(key));
+      console.log(relation);
       if (relation === Relation.Parent) {
         const familyRect = element.getOuterBounds();
         return new Point(
