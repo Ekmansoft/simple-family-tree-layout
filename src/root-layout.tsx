@@ -1,6 +1,12 @@
 import { Point } from "./point";
 import { FamilyLayout } from "./family-layout";
-import { FamilyLink, ProfileLink, TreeBackend, Relation, findRelation } from "simple-family-tree-model";
+import {
+  FamilyLink,
+  ProfileLink,
+  TreeBackend,
+  Relation,
+  findRelation,
+} from "simple-family-tree-model";
 import { layoutNextPoint, defaultParentOffsetVertical } from "./index";
 
 export class RootLayout {
