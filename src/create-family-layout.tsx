@@ -53,7 +53,7 @@ function addProfilesFromFamily(
       familyId,
       new Rectangle(nextPoint, defaultFamilySize)
     );
-    console.log("Add family: {}", family.familyId.itemLink);
+    console.log("Add family: {}", family.familyId.itemLink, nextPoint);
     const children = family.children.getLinks();
     children.forEach((element) => {
       if (!layout.profileAlreadyInLayout(new ProfileLink(element.itemLink))) {
@@ -99,6 +99,8 @@ function addProfilesFromFamily(
             element.itemLink
           );
         }
+      } else {
+        familyLayout.children.push(element.itemLink);
       }
     });
     const spouses = family.parents.getLinks();
@@ -146,6 +148,8 @@ function addProfilesFromFamily(
             element.itemLink
           );
         }
+      } else {
+        familyLayout.parents.push(element.itemLink);
       }
     });
     layout.families.set(family.familyId.itemLink, familyLayout);
@@ -194,14 +198,14 @@ export function createFamilyLayout(
         " families "
     );
 
-    // Now we check if the profile is a parent in any families
-    if (parentCount > 0) {
-      addParentFamiliesFromProfile(tree, layout, profile, parentCount - 1);
-    }
-
     // Now we check if the profile is a child in any families
     if (childCount > 0) {
       addSpousesAndChildrenFromProfile(tree, layout, profile, childCount - 1);
+    }
+
+    // Now we check if the profile is a parent in any families
+    if (parentCount > 0) {
+      addParentFamiliesFromProfile(tree, layout, profile, parentCount - 1);
     }
   }
   return layout;
