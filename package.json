@@ -30,12 +30,12 @@
     "url": "https://github.com/Ekmansoft/simple-family-layout"
   },
   "dependencies": {
-    "@types/react": "^18.0.16",
+    "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
-    "simple-family-tree-model": "^0.2.6"
+    "simple-family-tree-model": "^0.2.9"
   },
   "peerDependencies": {
     "react": "^18.2.0",

@@ -16,6 +16,7 @@ import {
   Profile,
   Family,
   TreeBackend,
+  getPartners,
 } from "simple-family-tree-model";
 
 function addParentFamiliesFromProfile(
@@ -206,6 +207,15 @@ export function createFamilyLayout(
     // Now we check if the profile is a parent in any families
     if (parentCount > 0) {
       addParentFamiliesFromProfile(tree, layout, profile, parentCount - 1);
+    }
+    const partners = getPartners(tree, profile.profileId);
+    if (partners.length > 0) {
+      partners.forEach((partnerLink) => {
+        const partner2 = tree.findProfile(partnerLink);
+        if (partner2 != undefined) {
+          addParentFamiliesFromProfile(tree, layout, partner2, parentCount - 1);
+        }
+      });
     }
   }
   return layout;
