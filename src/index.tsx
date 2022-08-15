@@ -1,6 +1,6 @@
 import { Point } from "./point";
 
-export const layoutNextPoint: Point = new Point(200, 200);
+export const layoutNextPoint: Point = new Point(400, 400);
 export const defaultProfileSize: Point = new Point(180, 80);
 export const defaultProfileOffsetHorizontal = 220;
 //const defaultProfileOffsetVertical: number = 120;

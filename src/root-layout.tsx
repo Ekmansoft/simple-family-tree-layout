@@ -19,7 +19,7 @@ export class RootLayout {
   constructor() {
     this.families = new Map<string, FamilyLayout>();
     this.profiles = new Map<string, string>();
-    this.anchorPosition = new Point(100, 100);
+    this.anchorPosition = new Point(400, 400);
     this.anchorProfile = "";
   }
 
