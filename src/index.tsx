@@ -17,4 +17,5 @@ export { ProfileInfo } from "./profile-info";
 export { createFamilyLayout } from "./create-family-layout";
 export { RenderFamilySVG } from "./render-family-svg";
 export { generateLayout } from "./generate-layout";
+export { generateProfileList } from "./generate-profile-list";
 export { RenderProfileSVG } from "./render-profile-svg";
