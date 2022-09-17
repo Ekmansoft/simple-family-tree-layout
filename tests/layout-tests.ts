@@ -3,6 +3,7 @@ import { LocalTreeBackend } from 'simple-family-tree-model';
 import { expect } from 'chai';
 import { generateLayout, createFamilyLayout } from '../src/index';
 import 'mocha';
+import { generateProfileList } from '../src/generate-profile-list';
 
 function createAndAddProfile(
     tree: LocalTreeBackend,
@@ -30,12 +31,16 @@ describe('verify tree', () => {
     let profile1 = undefined;
     let profile2 = undefined;
     let family1 = undefined;
+
+    let rootProfile: ProfileLink|undefined = undefined;
     //Arrange
-    it('Add first profile to tree ', () => {
+    it('Add family tree for layout tests ', () => {
         //Arrange
         let newProfileId1 = createAndAddProfile(tree, "Kalle Andersson", ProfileSex.Male, "19010101", "Umeå, Sweden", "19610101", "Vännäs, Sweden");
 
         expect(newProfileId1?.itemLink).to.equal("P1");
+
+        rootProfile = newProfileId1;
 
         let newProfileId2 = createAndAddProfile(tree, "Karin Andersson", ProfileSex.Female, "19020202", "Umeå, Sweden", "19620202", "Vännäs, Sweden");
 
@@ -116,15 +121,42 @@ describe('verify tree', () => {
             expect(result7).to.equal(true);
         }
 
-        let mainLayout = createFamilyLayout(tree, newProfileId1, 1, 1);
+    })
+    it('Test layout 1', () => {
+        if (rootProfile != undefined) {
+            let mainLayout = createFamilyLayout(tree, rootProfile, 1, 1);
 
-        console.log(mainLayout);
+            //console.log(mainLayout);
 
-        expect(mainLayout.families.size).to.equal(3);
-        expect(mainLayout.profiles.size).to.equal(8);
-        let resultingLayout = generateLayout(mainLayout)
-        console.log(resultingLayout);
-        expect(resultingLayout.length).to.equal(11);
+            expect(mainLayout.families.size).to.equal(3);
+            expect(mainLayout.profiles.size).to.equal(8);
+            let resultingLayout = generateLayout(mainLayout)
+            //console.log(resultingLayout);
+            expect(resultingLayout.length).to.equal(11);
+        }
+    })
+    it('Test layout 2', () => {
+        let profileListLayout = generateProfileList(tree);
+
+        //console.log("pre");
+        //console.log(profileListLayout.props.children);
+        //console.log("post");
+
+        expect(profileListLayout.props.children.length).to.equal(2);
+        // console.log("pre");
+        // console.log(profileListLayout.props.children[0].props);
+        // console.log("post");
+        // console.log("pre");
+        // console.log(profileListLayout.props.children[1].props.children[1]);
+        // console.log("post");
+        // console.log("pre");
+        // console.log(profileListLayout.props.children[1].props.children[1].props.children);
+        // console.log("post");
+        // console.log("pre");
+        // console.log(profileListLayout.props.children[1].props.children[1].props.children[0].props.children.props.children);
+        // console.log("post");
+
+        expect(profileListLayout.props.children[1].props.children[1].props.children.length).to.equal(8);
     })
 
 });

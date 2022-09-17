@@ -6,7 +6,7 @@ import { RenderProfileSVG } from "./render-profile-svg";
 export function generateLayout(layout: RootLayout): React.ReactElement[] {
   const svgData: React.ReactElement[] = [];
 
-  console.log("families {} ", layout.families.size);
+  // console.log("families {} ", layout.families.size);
 
   layout.families.forEach((element) => {
     //let profilePlace = new FamilyInfo(element.layout, element.family);
@@ -14,7 +14,7 @@ export function generateLayout(layout: RootLayout): React.ReactElement[] {
     element.profiles.forEach((profile) => {
       svgData.push(<RenderProfileSVG {...profile} />);
     });
-    console.log(element);
+    //console.log(element);
   });
   return svgData;
 }

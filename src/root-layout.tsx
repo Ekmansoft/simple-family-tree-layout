@@ -35,14 +35,14 @@ export class RootLayout {
   findFamilyPosition = (tree: TreeBackend, family: FamilyLink): Point => {
     let nextPoint: Point = layoutNextPoint;
 
-    console.log("findpos", family);
+    // console.log("findpos", family);
     this.families.forEach((element: FamilyLayout, key: string) => {
       element.profiles.forEach((element: ProfileInfo, key: string) => {
         const relation = findRelation(tree, family, new ProfileLink(key));
-        console.log("relation", relation);
+        // console.log("relation", relation);
         if (relation === Relation.Parent) {
           const profileRect = element.layout;
-          console.log("parent");
+          // console.log("parent");
           nextPoint = new Point(
             profileRect.getTopLeft().x,
             profileRect.getTopLeft().y - defaultParentOffsetVertical
@@ -50,7 +50,7 @@ export class RootLayout {
         }
         if (relation === Relation.Child) {
           const profileRect = element.layout;
-          console.log("child");
+          // console.log("child");
           nextPoint = new Point(
             profileRect.getTopLeft().x,
             profileRect.getTopLeft().y + defaultParentOffsetVertical
@@ -58,7 +58,7 @@ export class RootLayout {
         }
       });
     });
-    console.log("none");
+    // console.log("none");
     return nextPoint;
   };
 }

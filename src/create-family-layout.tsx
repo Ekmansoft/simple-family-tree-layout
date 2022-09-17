@@ -54,18 +54,18 @@ function addProfilesFromFamily(
       familyId,
       new Rectangle(nextPoint, defaultFamilySize)
     );
-    console.log("Add family: {}", family.familyId.itemLink, nextPoint);
+    // console.log("Add family: {}", family.familyId.itemLink, nextPoint);
     const children = family.children.getLinks();
     children.forEach((element) => {
       if (!layout.profileAlreadyInLayout(new ProfileLink(element.itemLink))) {
         const child = tree.findProfile(new ProfileLink(element.itemLink));
         if (child !== undefined) {
           const profileId = element.itemLink;
-          console.log(
-            "  Family: {} add child:{}",
-            family.familyId.itemLink,
-            profileId
-          );
+          // console.log(
+          //   "  Family: {} add child:{}",
+          //   family.familyId.itemLink,
+          //   profileId
+          // );
           if (!layout.profiles.has(profileId)) {
             const childPoint = new Point(
               familyLayout.rect.topLeft.x -
@@ -83,7 +83,7 @@ function addProfilesFromFamily(
               profileId,
               new ProfileInfo(placement, child)
             );
-            console.log("Addchild: ", profileId);
+            // console.log("Addchild: ", profileId);
             if (childGenerationCount > 0) {
               addSpousesAndChildrenFromProfile(
                 tree,
@@ -110,11 +110,11 @@ function addProfilesFromFamily(
         const spouse = tree.findProfile(new ProfileLink(element.itemLink));
         if (spouse !== undefined) {
           const profileId = element.itemLink;
-          console.log(
-            "  Family: {} add parent:{}",
-            family.familyId.itemLink,
-            profileId
-          );
+          // console.log(
+          //   "  Family: {} add parent:{}",
+          //   family.familyId.itemLink,
+          //   profileId
+          // );
           if (!layout.profiles.has(profileId)) {
             const spousePoint = new Point(
               familyLayout.rect.topLeft.x -
@@ -132,7 +132,7 @@ function addProfilesFromFamily(
               new ProfileInfo(placement, spouse)
             );
             familyLayout.parents.push(profileId);
-            console.log("Addchild: ", profileId);
+            // console.log("Addchild: ", profileId);
             if (childGenerationCount > 0) {
               addSpousesAndChildrenFromProfile(
                 tree,
@@ -189,15 +189,15 @@ export function createFamilyLayout(
     // We start by setting the root profile
     const startProfileId = profile.profileId.itemLink;
     layout.anchorProfile = startProfileId;
-    console.log(
-      "show profile " +
-        startProfileId +
-        " child in " +
-        profile.childInFamilies.getLinks().length +
-        " families, parent in " +
-        profile.parentInFamilies.getLinks().length +
-        " families "
-    );
+    // console.log(
+    //   "show profile " +
+    //     startProfileId +
+    //     " child in " +
+    //     profile.childInFamilies.getLinks().length +
+    //     " families, parent in " +
+    //     profile.parentInFamilies.getLinks().length +
+    //     " families "
+    // );
 
     // Now we check if the profile is a child in any families
     if (childCount > 0) {

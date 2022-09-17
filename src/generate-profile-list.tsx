@@ -1,9 +1,12 @@
 import React, { useState } from "react"; // importing FunctionComponent
-import { Profile, LocalTreeBackend } from "simple-family-tree-model";
+import { TreeBackend } from "simple-family-tree-model";
 
-export function generateProfileList(tree: LocalTreeBackend) {
+export function generateProfileList(tree: TreeBackend) {
   const profileList = tree.search("");
-  const [profiles] = useState(profileList);
+  console.log("profiles ", profileList.length);
+  //console.log(profileList);
+  //const [profiles, setProfile] = useState(profileList);
+  //console.log("profiles 3 ", profileList.length);
   return (
     <div className="container">
       <h3 className="p-3 text-left">Profile list</h3>
@@ -16,8 +19,8 @@ export function generateProfileList(tree: LocalTreeBackend) {
           </tr>
         </thead>
         <tbody>
-          {profiles &&
-            profiles.map((profile) => (
+          {profileList &&
+            profileList.map((profile) => (
               <a
                 href={"/profile/" + profile.profileId.itemLink}
                 className="Profile"
