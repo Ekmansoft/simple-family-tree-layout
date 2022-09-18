@@ -6,20 +6,17 @@ export function generateProfileList(tree: TreeBackend) {
   //const listData: React.ReactElement[] = [];
   const profileList = tree.search("");
   console.log("profiles ", profileList.length);
+
   //console.log(profileList);
   //const [profiles, setProfile] = useState(profileList);
   //console.log("profiles 3 ", profileList.length);
   const itemList = profileList.map((profile) => (
-    <a
-      href={"/profile/" + profile.profileId.itemLink}
-      key={profile.profileId.itemLink}
-    >
       <tr key={profile.profileId.itemLink}>
-        <td>{profile.name}</td>
+        <td><a href={"/profile/" + profile.profileId.itemLink}
+               key={profile.profileId.itemLink}>{profile.name}</a></td>
         <td>{profile.birthDate}</td>
         <td>{profile.deathDate}</td>
       </tr>
-    </a>
   ));
 
   //const itemList =
