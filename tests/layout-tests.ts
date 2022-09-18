@@ -1,7 +1,7 @@
 import {  Profile, ProfileLink, ProfileSex, Family, FamilyLink, createProfile  } from 'simple-family-tree-model';
 import { LocalTreeBackend } from 'simple-family-tree-model';
 import { expect } from 'chai';
-import { generateLayout, createFamilyLayout } from '../src/index';
+import { generateVerticalTreeLayout, createFamilyLayout } from '../src/index';
 import 'mocha';
 import { generateProfileList } from '../src/generate-profile-list';
 
@@ -130,7 +130,7 @@ describe('verify tree', () => {
 
             expect(mainLayout.families.size).to.equal(3);
             expect(mainLayout.profiles.size).to.equal(8);
-            let resultingLayout = generateLayout(mainLayout)
+            let resultingLayout = generateVerticalTreeLayout(mainLayout)
             //console.log(resultingLayout);
             expect(resultingLayout.length).to.equal(11);
         }

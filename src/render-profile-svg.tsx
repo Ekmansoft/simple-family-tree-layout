@@ -39,7 +39,7 @@ export class RenderProfileSVG extends React.Component<ProfileInfo> {
           rx="4"
           width={this.props.layout.size.x}
           height={this.props.layout.size.y}
-          fill={getSexColor(this.props.profile.getSex())}
+          fill={getSexColor(this.props.profile.sex)}
         />
         )
         <text
