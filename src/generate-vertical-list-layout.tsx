@@ -2,7 +2,9 @@ import React from "react";
 import { TreeBackend } from "simple-family-tree-model";
 import { RenderProfileListItem } from "./render-profile-list-item";
 
-export function generateVerticalListLayout(tree: TreeBackend): React.ReactElement[] {
+export function generateVerticalListLayout(
+  tree: TreeBackend
+): React.ReactElement[] {
   const listData: React.ReactElement[] = [];
 
   const profileList = tree.search("");

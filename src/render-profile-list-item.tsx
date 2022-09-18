@@ -13,10 +13,10 @@ export class RenderProfileListItem extends React.Component<Profile> {
           <td>{this.props.birthDate}</td>
           <td>{this.props.deathDate}</td>
         </tr>
-      </a>);
+      </a>
+    );
   }
 }
-
 
 // export class RenderProfileList extends React.Component<Profile[]> {
 //   const profiles =

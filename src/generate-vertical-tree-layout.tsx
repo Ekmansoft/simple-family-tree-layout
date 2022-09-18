@@ -3,7 +3,9 @@ import { RootLayout } from "./root-layout";
 import { RenderFamilySVG } from "./render-family-svg";
 import { RenderProfileSVG } from "./render-profile-svg";
 
-export function generateVerticalTreeLayout(layout: RootLayout): React.ReactElement[] {
+export function generateVerticalTreeLayout(
+  layout: RootLayout
+): React.ReactElement[] {
   const svgData: React.ReactElement[] = [];
 
   // console.log("families {} ", layout.families.size);
