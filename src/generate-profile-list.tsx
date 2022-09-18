@@ -12,16 +12,10 @@ export function generateProfileList(tree: TreeBackend) {
   //console.log("profiles 3 ", profileList.length);
   const itemList = profileList.map((profile) => (
     <tr key={profile.profileId.itemLink}>
-      <td>
-        <a
-          href={"/profile/" + profile.profileId.itemLink}
-          key={profile.profileId.itemLink}
-        >
-          {profile.name}
-        </a>
-      </td>
-      <td>{profile.birthDate}</td>
-      <td>{profile.deathDate}</td>
+      <td style={{width: '50%',textAlign:'left'}}><a style={{color:'white'}} href={"/profile/" + profile.profileId.itemLink}>
+              {profile.name}</a></td>
+      <td style={{textAlign:'left'}}>{profile.birthDate}</td>
+      <td style={{textAlign:'left'}}>{profile.deathDate}</td>
     </tr>
   ));
 
@@ -35,9 +29,9 @@ export function generateProfileList(tree: TreeBackend) {
       <table className="table table-striped table-bordered">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Birth</th>
-            <th>Death</th>
+            <th style={{width: '50%',textAlign:'left'}}>Name</th>
+            <th style={{textAlign:'left'}}>Birth</th>
+            <th style={{textAlign:'left'}}>Death</th>
           </tr>
         </thead>
         <tbody>{itemList}</tbody>
