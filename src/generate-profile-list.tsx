@@ -1,9 +1,9 @@
-import React, { useState } from "react"; // importing FunctionComponent
-import { Profile, TreeBackend } from "simple-family-tree-model";
+import React from "react"; // importing FunctionComponent
+import { TreeBackend } from "simple-family-tree-model";
 
 //export class RenderProfileList extends React.Component<TreeBackend> {
 export function generateProfileList(tree: TreeBackend) {
-  const listData: React.ReactElement[] = [];
+  //const listData: React.ReactElement[] = [];
   const profileList = tree.search("");
   console.log("profiles ", profileList.length);
   //console.log(profileList);

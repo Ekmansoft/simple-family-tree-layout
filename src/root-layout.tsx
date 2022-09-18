@@ -24,7 +24,7 @@ export class RootLayout {
   }
 
   profileAlreadyInLayout = (profileId: ProfileLink): boolean => {
-    this.families.forEach((element: FamilyLayout, key: string) => {
+    this.families.forEach((element: FamilyLayout, _: string) => {
       if (element.profiles.has(profileId.itemLink)) {
         return true;
       }
@@ -37,7 +37,7 @@ export class RootLayout {
 
     // console.log("findpos", family);
     this.families.forEach((element: FamilyLayout, key: string) => {
-      element.profiles.forEach((element: ProfileInfo, key: string) => {
+      element.profiles.forEach((element: ProfileInfo, _: string) => {
         const relation = findRelation(tree, family, new ProfileLink(key));
         // console.log("relation", relation);
         if (relation === Relation.Parent) {
