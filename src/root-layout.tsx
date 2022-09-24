@@ -16,7 +16,7 @@ export class RootLayout {
   profiles: Map<string, string>;
   anchorPosition: Point;
   anchorProfile: string;
-  size:Point;
+  size: Point;
 
   constructor() {
     this.families = new Map<string, FamilyLayout>();
