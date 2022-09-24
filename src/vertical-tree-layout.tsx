@@ -13,8 +13,10 @@ export interface TreeLayoutInfo {
 export class VerticalTreeLayout extends React.Component<TreeLayoutInfo> {
   layout = createFamilyLayout(this.props.tree, this.props.focusProfile, 2, 2);
   render() {
-    return <svg width={this.props.layout.size.x} height={this.props.layout.size.y}>
-      {generateVerticalTreeLayout(this.props.layout)}
-      </svg>;
+    return (
+      <svg width={this.props.layout.size.x} height={this.props.layout.size.y}>
+        {generateVerticalTreeLayout(this.props.layout)}
+      </svg>
+    );
   }
 }
