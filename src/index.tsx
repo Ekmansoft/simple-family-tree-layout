@@ -1,5 +1,6 @@
 import { Point } from "./point";
 
+export const defaultLayoutSize: Point = new Point(400, 400);
 export const layoutNextPoint: Point = new Point(400, 400);
 export const defaultProfileSize: Point = new Point(180, 80);
 export const defaultProfileOffsetHorizontal = 220;
@@ -21,3 +22,4 @@ export { generateVerticalTreeLayout } from "./generate-vertical-tree-layout";
 export { generateVerticalListLayout } from "./generate-vertical-list-layout";
 export { generateProfileList } from "./generate-profile-list";
 export { RenderProfileSVG } from "./render-profile-svg";
+export { TreeLayoutInfo, VerticalTreeLayout } from "./vertical-tree-layout";

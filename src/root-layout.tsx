@@ -8,6 +8,7 @@ import {
   Relation,
   findRelation,
 } from "simple-family-tree-model";
+import { defaultLayoutSize } from "./index";
 import { layoutNextPoint, defaultParentOffsetVertical } from "./index";
 
 export class RootLayout {
@@ -15,12 +16,14 @@ export class RootLayout {
   profiles: Map<string, string>;
   anchorPosition: Point;
   anchorProfile: string;
+  size:Point;
 
   constructor() {
     this.families = new Map<string, FamilyLayout>();
     this.profiles = new Map<string, string>();
-    this.anchorPosition = new Point(400, 400);
+    this.anchorPosition = new Point(layoutNextPoint.x, layoutNextPoint.y);
     this.anchorProfile = "";
+    this.size = new Point(defaultLayoutSize.x, defaultLayoutSize.y);
   }
 
   profileAlreadyInLayout = (profileId: ProfileLink): boolean => {
