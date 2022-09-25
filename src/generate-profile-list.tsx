@@ -1,4 +1,5 @@
 import React from "react"; // importing FunctionComponent
+import './generate-profile-list.css';
 import { TreeBackend } from "simple-family-tree-model";
 
 //export class RenderProfileList extends React.Component<TreeBackend> {
@@ -7,51 +8,34 @@ export function generateProfileList(tree: TreeBackend) {
   const profileList = tree.search("");
   console.log("profiles ", profileList.length);
 
-  //console.log(profileList);
-  //const [profiles, setProfile] = useState(profileList);
-  //console.log("profiles 3 ", profileList.length);
   const itemList = profileList.map((profile) => (
     <tr key={profile.profileId.itemLink}>
-      <td style={{ width: "150px", textAlign: "left", fontSize: "0.8rem" }}>
-        <a
-          style={{ color: "white" }}
-          href={"/profile/" + profile.profileId.itemLink}
-        >
+      <td className="prName">
+        <a href={"/profile/" + profile.profileId.itemLink} >
           {profile.name}
         </a>
       </td>
-      <td style={{ width: "80px", textAlign: "left", fontSize: "0.8rem" }}>
+      <td className="prEvent">
         {profile.birthDate}
       </td>
-      <td style={{ width: "80px", textAlign: "left", fontSize: "0.8rem" }}>
+      <td className="prEvent">
         {profile.deathDate}
       </td>
     </tr>
   ));
 
-  //const itemList =
-  // const listItems = profileList.map((profile) =>
-  //   <RenderProfileListItem  key={profile.profileId.itemLink} value={profile} />
-  // );
   return (
     <div className="container">
-      <h3 className="p-3 text-left">Profile list</h3>
-      <table className="table table-striped table-bordered">
+      <table className="prListTable">
         <thead>
           <tr>
-            <th
-              style={{ width: "150px", textAlign: "left", fontSize: "0.8rem" }}
-            >
+            <th>
               Name
             </th>
-            <th
-              style={{ width: "80px", textAlign: "left", fontSize: "0.8rem" }}
-            >
+            <th>
               Birth
             </th>
-            <th
-              style={{ width: "80px", textAlign: "left", fontSize: "0.8rem" }}
-            >
+            <th>
               Death
             </th>
           </tr>

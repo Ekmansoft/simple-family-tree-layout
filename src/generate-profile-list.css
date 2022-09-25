@@ -1,0 +1,20 @@
+
+a {
+  color: white;
+}
+
+.prListTable {
+  color: white;
+  font-family: sans-serif;
+  font-size: 0.4em;
+  text-align:left;
+}
+
+.prName {
+  width: 200em;
+}
+
+.prEvent {
+  width: 100em;
+}
+
