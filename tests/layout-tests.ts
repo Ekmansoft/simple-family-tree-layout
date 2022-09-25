@@ -138,11 +138,12 @@ describe('verify tree', () => {
     it('Test layout 2', () => {
         let profileListLayout = generateProfileList(tree);
 
-        //console.log("pre");
-        //console.log(profileListLayout.props.children);
-        //console.log("post");
+        // console.log("pre");
+        //console.log(profileListLayout.props.children.props.children);
+        //console.log(profileListLayout.props.children.length);
+        // console.log("post");
 
-        expect(profileListLayout.props.children.length).to.equal(2);
+        expect(profileListLayout.props.children.props.children.length).to.equal(2);
         // console.log("pre");
         // console.log(profileListLayout.props.children[0].props);
         // console.log("post");
@@ -153,10 +154,13 @@ describe('verify tree', () => {
         // console.log(profileListLayout.props.children[1].props.children[1].props.children);
         // console.log("post");
         // console.log("pre");
-        // console.log(profileListLayout.props.children[1].props.children[1].props.children[0].props.children.props.children);
+        // console.log(profileListLayout.props.children.props.children[1].props.children.length);
         // console.log("post");
 
-        expect(profileListLayout.props.children[1].props.children[1].props.children.length).to.equal(8);
+        expect(profileListLayout.props.children.props.children[0].type).to.equal('thead');
+        expect(profileListLayout.props.children.props.children[1].type).to.equal('tbody');
+
+        expect(profileListLayout.props.children.props.children[1].props.children.length).to.equal(8);
     })
 
 });
