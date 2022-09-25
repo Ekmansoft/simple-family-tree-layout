@@ -9,7 +9,7 @@ const styles = {
   },
   prListLink: {
     color: "white",
-  }
+  },
 } as const;
 
 //export class RenderProfileList extends React.Component<TreeBackend> {
@@ -21,7 +21,12 @@ export function generateProfileList(tree: TreeBackend) {
   const itemList = profileList.map((profile) => (
     <tr key={profile.profileId.itemLink}>
       <td>
-        <a href={"/profile/" + profile.profileId.itemLink} style={styles.prListLink}>{profile.name}</a>
+        <a
+          href={"/profile/" + profile.profileId.itemLink}
+          style={styles.prListLink}
+        >
+          {profile.name}
+        </a>
       </td>
       <td>{profile.birthDate}</td>
       <td>{profile.deathDate}</td>
