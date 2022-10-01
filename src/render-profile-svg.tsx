@@ -11,8 +11,6 @@ export const profileSvgStyles = {
     fontSize: "1.5rem",
   },
   profileBox: {
-    innerWidth: 200,
-    innerHeight: 70,
     femaleColor: "lightpink",
     maleColor: "lightblue",
     unknownSexColor: "white",
@@ -45,8 +43,8 @@ export class RenderProfileSVG extends React.Component<ProfileInfo> {
           x={this.props.layout.topLeft.x}
           y={this.props.layout.topLeft.y}
           rx="4"
-          width={profileSvgStyles.profileBox.innerWidth}
-          height={profileSvgStyles.profileBox.innerHeight}
+          width={profileSvgStyles.profileBox.size.x}
+          height={profileSvgStyles.profileBox.size.y}
           fill={getSexColor(this.props.profile.sex)}
         />
         <text
