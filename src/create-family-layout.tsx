@@ -1,12 +1,9 @@
 import { ProfileInfo } from "./profile-info";
+import { profileSvgStyles } from "./render-profile-svg";
 import { RootLayout } from "./root-layout";
 import { FamilyLayout } from "./family-layout";
 import {
-  defaultFamilySize,
-  defaultProfileOffsetHorizontal,
-  defaultChildOffsetVertical,
-  defaultParentOffsetVertical,
-  defaultProfileSize,
+  defaultFamilySize
 } from "./index";
 import { Point } from "./point";
 import { Rectangle } from "./rectangle";
@@ -70,13 +67,13 @@ function addProfilesFromFamily(
             const childPoint = new Point(
               familyLayout.rect.topLeft.x -
                 20 +
-                familyLayout.children.length * defaultProfileOffsetHorizontal,
-              familyLayout.rect.topLeft.y + defaultChildOffsetVertical
+                familyLayout.children.length * profileSvgStyles.profileBox.horizontalOffset,
+              familyLayout.rect.topLeft.y + profileSvgStyles.profileBox.verticalOffsetChild
             );
             familyLayout.children.push(profileId);
             const placement: Rectangle = new Rectangle(
               childPoint,
-              defaultProfileSize
+              profileSvgStyles.profileBox.size
             );
             layout.profiles.set(profileId, profileId);
             familyLayout.profiles.set(
@@ -119,12 +116,12 @@ function addProfilesFromFamily(
             const spousePoint = new Point(
               familyLayout.rect.topLeft.x -
                 20 +
-                familyLayout.parents.length * defaultProfileOffsetHorizontal,
-              familyLayout.rect.topLeft.y + defaultParentOffsetVertical
+                familyLayout.parents.length * profileSvgStyles.profileBox.horizontalOffset,
+              familyLayout.rect.topLeft.y + profileSvgStyles.profileBox.verticalOffsetParent
             );
             const placement: Rectangle = new Rectangle(
               spousePoint,
-              defaultProfileSize
+              profileSvgStyles.profileBox.size
             );
             layout.profiles.set(profileId, profileId);
             familyLayout.profiles.set(
