@@ -1,29 +1,15 @@
 import React from "react"; // importing FunctionComponent
 import { ProfileInfo } from "./profile-info";
 import { getSexColor } from "./get-sex-color";
-import CSS from "csstype";
 
-const NameStyle: CSS.Properties = {
-  backgroundColor: "rgba(255, 255, 255, 0.85)",
-  position: "absolute",
-  right: 0,
-  bottom: "2rem",
-  padding: "0.5rem",
-  fontFamily: "sans-serif",
-  fontSize: "1.5rem",
-  boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
-};
-
-const SmallStyle: CSS.Properties = {
-  backgroundColor: "rgba(255, 255, 255, 0.85)",
-  position: "absolute",
-  right: 0,
-  bottom: "2rem",
-  padding: "0.5rem",
-  fontFamily: "sans-serif",
-  fontSize: "0.9rem",
-  boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
-};
+const styles = {
+  smallText: {
+    fontSize: "0.9rem",
+  },
+  mainText: {
+    fontSize: "1.5rem",
+  },
+} as const;
 
 export class RenderProfileSVG extends React.Component<ProfileInfo> {
   render() {
@@ -45,24 +31,21 @@ export class RenderProfileSVG extends React.Component<ProfileInfo> {
         <text
           x={this.props.layout.topLeft.x + 10}
           y={this.props.layout.topLeft.y + 20}
-          style={NameStyle}
-          className="NameStyle"
+          style={styles.mainText}
         >
           {this.props.profile.name}
         </text>
         <text
           x={this.props.layout.topLeft.x + 20}
           y={this.props.layout.topLeft.y + 40}
-          style={SmallStyle}
-          className="SmallStyle"
+          style={styles.smallText}
         >
           b.{this.props.profile.birthDate}
         </text>
         <text
           x={this.props.layout.topLeft.x + 20}
           y={this.props.layout.topLeft.y + 55}
-          style={SmallStyle}
-          className="SmallStyle"
+          style={styles.smallText}
         >
           d.{this.props.profile.deathDate}
         </text>
