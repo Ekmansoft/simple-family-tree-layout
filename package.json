@@ -1,6 +1,6 @@
 {
   "name": "simple-family-tree-layout",
-  "version": "0.2.40",
+  "version": "0.2.41",
   "description": "A React layout model for genealogy family trees",
   "main": "lib/src/index.js",
   "types": "lib/src/index.d.ts",
