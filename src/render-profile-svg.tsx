@@ -3,6 +3,8 @@ import { ProfileSex } from "simple-family-tree-model";
 import { ProfileInfo } from "./profile-info";
 import { Point } from "./point";
 
+const profileBoxSize = new Point(180, 80);
+
 export const profileSvgStyles = {
   smallText: {
     fontSize: "0.9rem",
@@ -17,7 +19,7 @@ export const profileSvgStyles = {
     verticalOffsetChild: 60,
     verticalOffsetParent: -100,
     horizontalOffset: 250,
-    size: new Point(180, 80),
+    size: profileBoxSize,
   },
 } as const;
 
