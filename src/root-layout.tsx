@@ -8,7 +8,7 @@ import {
   Relation,
   findRelation,
 } from "simple-family-tree-model";
-import { profileSvgStyles } from "./render-profile-svg"
+import { profileSvgStyles } from "./render-profile-svg";
 import { defaultLayoutSize } from "./index";
 import { layoutNextPoint } from "./index";
 
@@ -49,7 +49,8 @@ export class RootLayout {
           // console.log("parent");
           nextPoint = new Point(
             profileRect.getTopLeft().x,
-            profileRect.getTopLeft().y - profileSvgStyles.profileBox.verticalOffsetChild
+            profileRect.getTopLeft().y -
+              profileSvgStyles.profileBox.verticalOffsetChild
           );
         }
         if (relation === Relation.Child) {
@@ -57,7 +58,8 @@ export class RootLayout {
           // console.log("child");
           nextPoint = new Point(
             profileRect.getTopLeft().x,
-            profileRect.getTopLeft().y + profileSvgStyles.profileBox.verticalOffsetParent
+            profileRect.getTopLeft().y +
+              profileSvgStyles.profileBox.verticalOffsetParent
           );
         }
       });

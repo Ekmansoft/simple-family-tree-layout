@@ -2,9 +2,7 @@ import { ProfileInfo } from "./profile-info";
 import { profileSvgStyles } from "./render-profile-svg";
 import { RootLayout } from "./root-layout";
 import { FamilyLayout } from "./family-layout";
-import {
-  defaultFamilySize
-} from "./index";
+import { defaultFamilySize } from "./index";
 import { Point } from "./point";
 import { Rectangle } from "./rectangle";
 import {
@@ -67,8 +65,10 @@ function addProfilesFromFamily(
             const childPoint = new Point(
               familyLayout.rect.topLeft.x -
                 20 +
-                familyLayout.children.length * profileSvgStyles.profileBox.horizontalOffset,
-              familyLayout.rect.topLeft.y + profileSvgStyles.profileBox.verticalOffsetChild
+                familyLayout.children.length *
+                  profileSvgStyles.profileBox.horizontalOffset,
+              familyLayout.rect.topLeft.y +
+                profileSvgStyles.profileBox.verticalOffsetChild
             );
             familyLayout.children.push(profileId);
             const placement: Rectangle = new Rectangle(
@@ -116,8 +116,10 @@ function addProfilesFromFamily(
             const spousePoint = new Point(
               familyLayout.rect.topLeft.x -
                 20 +
-                familyLayout.parents.length * profileSvgStyles.profileBox.horizontalOffset,
-              familyLayout.rect.topLeft.y + profileSvgStyles.profileBox.verticalOffsetParent
+                familyLayout.parents.length *
+                  profileSvgStyles.profileBox.horizontalOffset,
+              familyLayout.rect.topLeft.y +
+                profileSvgStyles.profileBox.verticalOffsetParent
             );
             const placement: Rectangle = new Rectangle(
               spousePoint,

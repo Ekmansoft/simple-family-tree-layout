@@ -19,9 +19,8 @@ export const profileSvgStyles = {
     verticalOffsetChild: 60,
     verticalOffsetParent: -100,
     horizontalOffset: 250,
-    size: new Point(180,80)
+    size: new Point(180, 80),
   },
-
 } as const;
 
 export function getSexColor(sex: ProfileSex): string {
@@ -33,7 +32,6 @@ export function getSexColor(sex: ProfileSex): string {
   }
   return profileSvgStyles.profileBox.unknownSexColor;
 }
-
 
 export class RenderProfileSVG extends React.Component<ProfileInfo> {
   render() {
