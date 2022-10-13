@@ -2,12 +2,6 @@ import { Point } from "./point";
 
 export const defaultLayoutSize: Point = new Point(800, 800);
 export const layoutNextPoint: Point = new Point(400, 400);
-//export const defaultProfileSize: Point = new Point(180, 80);
-//export const defaultProfileOffsetHorizontal = 220;
-//const defaultProfileOffsetVertical: number = 120;
-//const defaultFamilyOffsetHorizontal: number = 120;
-//export const defaultParentOffsetVertical = -100;
-//export const defaultChildOffsetVertical = 60;
 export const defaultFamilySize: Point = new Point(40, 40);
 
 export { Point } from "./point";
