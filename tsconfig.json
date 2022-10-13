@@ -1,4 +1,5 @@
 {
+  "extends": "@tsconfig/node16/tsconfig.json",
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
     "jsx": "react",
@@ -35,7 +36,12 @@
   },
   "include": [
     "./src/*.tsx",
+    "./src/*.ts",
     "./src/*.css",
     "./tests/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
   ]
+
 }
