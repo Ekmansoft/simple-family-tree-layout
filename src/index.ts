@@ -12,6 +12,7 @@ export { ProfileInfo } from "./profile-info";
 export { createFamilyLayout } from "./create-family-layout";
 export { RenderFamilySVG } from "./render-family-svg";
 export { RenderProfileListItem } from "./render-profile-list-item";
+export { ProfileListTable } from "./profile-list-table";
 export { generateVerticalTreeLayout } from "./generate-vertical-tree-layout";
 export { generateVerticalListLayout } from "./generate-vertical-list-layout";
 export { generateProfileList } from "./generate-profile-list";
