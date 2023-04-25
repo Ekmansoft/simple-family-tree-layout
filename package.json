@@ -43,7 +43,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@svgr/webpack": "^6.3.1",
+    "@svgr/webpack": "^7.0.0",
     "@types/chai": "^4.3.1",
     "@types/jest": "^28.1.6",
     "@types/mocha": "^9.1.1",
